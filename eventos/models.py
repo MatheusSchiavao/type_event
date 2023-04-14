@@ -17,5 +17,10 @@ class Evento(models.Model):
     cor_secundaria = models.CharField(max_length=7)
     cor_fundo = models.CharField(max_length=7)
 
-    def __str__(self) -> str:
-        return self.nome
+def __str__(self) -> str:
+    return self.nome
+
+class Certificado(models.Model):
+    certificado = models.ImageField(upload_to="certificados")
+    participante = models.ForeignKey(User, on_delete=models.DO_NOTHING)
+    evento = models.ForeignKey(Evento, on_delete=models.DO_NOTHING)
